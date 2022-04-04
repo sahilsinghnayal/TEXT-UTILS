@@ -8,6 +8,11 @@ export default function Textfrom(props) {
     let newText= text.toUpperCase();
     setText(newText);
   }
+  const lowercasebtn=()=>{
+    // console.log("i am presses"+text);
+    let newText= text.toLowerCase();
+    setText(newText);
+  }
   const handleonchange=(event)=>{
     // console.log("on change");
     setText(event.target.value);  //onchange use kiya h jb humchange krein tb hoga
@@ -21,8 +26,15 @@ export default function Textfrom(props) {
 <div className="mb-3">
   <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} rows="12"></textarea>
 </div>
-<button className="btn btn-primary" onClick={uppercasebtn}  >convert to uppercase</button>
+<button className="btn btn-primary mx-2" onClick={uppercasebtn}  >Convert to Uppercase</button>
+<button className="btn btn-primary mx-2" onClick={lowercasebtn}  >Convert to Lowercase</button>
 </div>
+ <div className="container my-4">
+   <h2>Your Text Summary</h2>
+   <p>{text.split(" ").length} words and {text.length} character</p>
+   <h2>Preview</h2>
+   <p>{text}</p>
+ </div>
 </>
   )
 }
