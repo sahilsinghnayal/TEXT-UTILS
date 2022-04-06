@@ -26,9 +26,9 @@ export default function Textfrom(props) {
   return (<> 
   
   <div>    
-   <h2>{props.head}</h2>
+   <h2 style={{color: props.mode==='dark'? 'white':'black'}}>{props.head}</h2>
 <div className="mb-3">
-  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} rows="12"></textarea>
+  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} style={{backgroundColor: props.mode==='dark'? 'grey':'white'}} rows="12"></textarea>
 </div>
 <button className="btn btn-primary mx-2" onClick={uppercasebtn}  >Convert to Uppercase</button>
 <button className="btn btn-primary mx-2" onClick={lowercasebtn}  >Convert to Lowercase</button>
