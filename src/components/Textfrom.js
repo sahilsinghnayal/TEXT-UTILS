@@ -28,7 +28,7 @@ export default function Textfrom(props) {
   <div>    
    <h2 style={{color: props.mode==='dark'? 'white':'black'}}>{props.head}</h2>
 <div className="mb-3">
-  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} style={{backgroundColor: props.mode==='dark'? 'grey':'white'}} rows="12"></textarea>
+  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} style={{backgroundColor: props.mode==='dark'? 'grey':'white',color:props.mode==='dark'? 'white':'black'}} rows="12"></textarea>
 </div>
 <button className="btn btn-primary mx-2" onClick={uppercasebtn}  >Convert to Uppercase</button>
 <button className="btn btn-primary mx-2" onClick={lowercasebtn}  >Convert to Lowercase</button>
@@ -36,7 +36,7 @@ export default function Textfrom(props) {
 
 
 </div>
- <div className="container my-4">
+ <div className="container my-4"  style={{color: props.mode==='dark'? 'white':'black'}}>
    <h2>Your Text Summary</h2>
    <p>{text.split(" ").length} words and {text.length} character</p>
    <h2>Preview</h2>
