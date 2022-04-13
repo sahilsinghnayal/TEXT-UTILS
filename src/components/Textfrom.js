@@ -7,14 +7,22 @@ export default function Textfrom(props) {
     // console.log("i am presses"+text);
     let newText= text.toUpperCase();
     setText(newText);
+    props.showAlert("converted to uppercase ","success")
   }
   const lowercasebtn=()=>{
     let newText= text.toLowerCase();
     setText(newText);
+    props.showAlert("converted to lowerercase ","success")
   }
   const clearText=()=>{
     let newText= '';
     setText(newText);
+    props.showAlert("Text has been cleared  ","success")
+  }
+  const removespace=()=>{
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" ")) 
+    props.showAlert(" Extra space is removed ","success")
   }
  
   const handleonchange=(event)=>{
@@ -33,6 +41,7 @@ export default function Textfrom(props) {
 <button className="btn btn-primary mx-2" onClick={uppercasebtn}  >Convert to Uppercase</button>
 <button className="btn btn-primary mx-2" onClick={lowercasebtn}  >Convert to Lowercase</button>
 <button className="btn btn-primary mx-2" onClick={clearText}  >Clear Text</button>
+<button className="btn btn-primary mx-2" onClick={removespace}  >Remove space</button>
 
 
 </div>
@@ -46,3 +55,4 @@ export default function Textfrom(props) {
 </>
   )
 }
+
