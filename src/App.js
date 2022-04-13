@@ -1,9 +1,16 @@
 import "./App.css";
-// import Aboutme from "./components/Aboutme";
+import Aboutme from "./components/Aboutme";
 import Navbar from "./components/Navbar";
 import Textfrom from "./components/Textfrom";
 import React, { useState } from 'react';
 import Alert from "./components/Alert";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 function App() {
   const [mode, setMode] = useState("light")
   const[alert,setAlert]=useState("null")
@@ -29,15 +36,22 @@ function App() {
     }
   }
   return (
-    <>
-      <Navbar title="TextTiles" about="about " mode={mode} toggle={toggle}/>         {/* importing Navbar from components */}
+    <> 
+    <Router> 
+      <Navbar title="TextTiles" about="about " mode={mode} toggle={toggle}/>       
       <Alert alert={alert}/>
     <div className="container my-3">
-    <Textfrom showAlert={showAlert} head="Enter The Text you Want To Analyze" mode={mode}/>
-      {/* <Aboutme/> */}
-
-
+       <Routes> 
+          <Route exact path="/about" element={<Aboutme />} />
+         
+         
+          <Route exact path="/" element={ <Textfrom showAlert={showAlert} head="Enter The Text you Want To Analyze" mode={mode}/> }/>
+          {/* <Textfrom showAlert={showAlert} head="Enter The Text you Want To Analyze" mode={mode}/>  */}
+          
+          </Routes>
+         
     </div>
+    </Router>
     </>
   );
 }
