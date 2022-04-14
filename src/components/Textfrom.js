@@ -36,18 +36,17 @@ export default function Textfrom(props) {
   <div>    
    <h2 style={{color: props.mode==='dark'? 'white':'black'}}>{props.head}</h2>
 <div className="mb-3">
-  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} style={{backgroundColor: props.mode==='dark'? 'grey':'white',color:props.mode==='dark'? 'white':'black'}} rows="12"></textarea>
+  <textarea className="form-control" id="mybox"  value={text} onChange={handleonchange} style={{backgroundColor: props.mode==='dark'? '#808080a1':'white',color:props.mode==='dark'? 'white':'black'}} rows="12"></textarea>
 </div>
-<button className="btn btn-primary mx-2" onClick={uppercasebtn}  >Convert to Uppercase</button>
-<button className="btn btn-primary mx-2" onClick={lowercasebtn}  >Convert to Lowercase</button>
-<button className="btn btn-primary mx-2" onClick={clearText}  >Clear Text</button>
-<button className="btn btn-primary mx-2" onClick={removespace}  >Remove space</button>
-
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={uppercasebtn}  >Convert to Uppercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={lowercasebtn}  >Convert to Lowercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={clearText}  >Clear Text</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={removespace}  >Remove space</button>
 
 </div>
  <div className="container my-4"  style={{color: props.mode==='dark'? 'white':'black'}}>
    <h2>Your Text Summary</h2>
-   <p>{text.split(" ").length} words and {text.length} character</p>
+   <p>{text.split(" ").filter((Element)=>{return Element.length!==0}).length} words and {text.length} character</p>
    <h2>Preview</h2>
    <p>{text}</p>
  </div>
